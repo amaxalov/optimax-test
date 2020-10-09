@@ -1,0 +1,25 @@
+import * as React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { HashRouter } from 'react-router-dom'
+import { Routes } from '@/routes'
+import '@/components/typography/font.css'
+import '@/components/layout/body.css'
+import store from '@/core/store'
+import { Navigation } from './modules/navigation'
+import 'normalize.css'
+
+export const Root: React.FC = () => {
+  return (
+    <React.StrictMode>
+      <Provider store={store}>
+        <HashRouter>
+          <Navigation />
+          <Routes />
+        </HashRouter>
+      </Provider>
+    </React.StrictMode>
+  )
+}
+
+render(<Root />, document.getElementById('root'))
