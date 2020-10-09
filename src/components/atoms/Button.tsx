@@ -5,7 +5,6 @@ const Root = styled.button`
   width: 200px;
   padding: 13px 20px;
   border-radius: 5px;
-  outline: none;
   background: #48a1e6;
   border: none;
   color: white;

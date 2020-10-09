@@ -4,10 +4,12 @@ import { FETCH_CATALOG, FETCH_CATALOG_REJECTED, FETCH_CATALOG_SUCCESS, ADD_TO_CA
 
 export type IFetchCatalogAction = Action<typeof FETCH_CATALOG>
 
-export type IFetchCatalogRejectedAction = Action<typeof FETCH_CATALOG_REJECTED>
-
 export interface IFetchCatalogSuccessAction extends Action<typeof FETCH_CATALOG_SUCCESS> {
   readonly payload: IProduct[]
+}
+
+export interface IFetchCatalogRejectAction extends Action<typeof FETCH_CATALOG_REJECTED> {
+  readonly payload: string
 }
 
 export interface IAddToCatalogAction extends Action<typeof ADD_TO_CATALOG> {
@@ -17,10 +19,11 @@ export interface IAddToCatalogAction extends Action<typeof ADD_TO_CATALOG> {
 export interface ICatalogState {
   readonly isFetched: boolean
   readonly items: IProduct[]
+  readonly error: string | null
 }
 
 export type ICatalogActions =
   | IFetchCatalogAction
-  | IFetchCatalogRejectedAction
+  | IFetchCatalogRejectAction
   | IFetchCatalogSuccessAction
   | IAddToCatalogAction

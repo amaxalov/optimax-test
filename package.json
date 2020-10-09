@@ -77,13 +77,9 @@
     "react-final-form": "6.5.1",
     "react-redux": "7.2.1",
     "react-router-dom": "5.2.0",
-    "redux-thunk": "2.3.0",
-    "styled-normalize": "8.0.7"
+    "redux-thunk": "2.3.0"
   },
   "jest": {
-    "testMatch": [
-      "<rootDir>/**/*.test.tsx"
-    ],
     "moduleNameMapper": {
       "@/(.*)": "<rootDir>/src/$1"
     }

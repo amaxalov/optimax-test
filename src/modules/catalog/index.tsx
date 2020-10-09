@@ -16,8 +16,8 @@ interface RootState {
 const Catalog: React.FC = React.memo(function Catalog() {
   const [isOpen, open] = React.useState<boolean>(false)
   const dispatch = useDispatch()
-  const catalog = useSelector((store: RootState) => store.catalog)
-  const isEmptyCatalog = catalog.items.length === 0
+  const { items } = useSelector((store: RootState) => store.catalog)
+  const isEmptyCatalog = items.length === 0
   React.useEffect(() => {
     if (isEmptyCatalog) {
       dispatch(thunkFetchCatalog())
@@ -34,7 +34,7 @@ const Catalog: React.FC = React.memo(function Catalog() {
         <Header align='center'>Stock of the companies</Header>
       </Spacer>
       <Spacer top='20' bottom='20'>
-        <Items items={catalog.items} />
+        <Items items={items} />
       </Spacer>
       <Button onClick={() => open(true)}>add stock</Button>
       {isOpen && <Modal closeModal={() => open(false)} />}
