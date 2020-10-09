@@ -4,8 +4,7 @@ import { INDEX_ROUTE, CATALOG_ROUTE, CART_ROUTE } from './routes-map'
 import Main from '@/modules/main'
 import Catalog from '@/modules/catalog'
 import Cart from '@/modules/cart'
-
-const NotFound = React.lazy(() => import(/* webpackChunkName: "404" */ '@/modules/not-found'))
+import NotFound from '@/modules/not-found'
 
 export const Routes: React.FC = () => (
   <React.Suspense fallback={<div>Load...</div>}>

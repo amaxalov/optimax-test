@@ -75,7 +75,7 @@ describe('async fetch catalog', () => {
 
     const store = mockStore({ items: [] })
 
-    // typescript issue
+    // redux thunk types issue
     /* eslint-disable @typescript-eslint/no-explicit-any */
     return store.dispatch<any>(thunkFetchCatalog()).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
