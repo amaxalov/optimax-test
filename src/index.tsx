@@ -9,6 +9,7 @@ import store from '@/core/store'
 import { Navigation } from './modules/navigation'
 import 'normalize.css'
 
+// HashRouter только потому, что это уходит на github pages
 export const Root: React.FC = () => {
   return (
     <React.StrictMode>
