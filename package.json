@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --mode development --config ./configs/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --mode production --config ./configs/webpack.prod.js",
+    "dev": "cross-env NODE_ENV=development webpack --config ./configs/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./configs/webpack.prod.js",
     "deploy": "gh-pages -d build",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --color --open --config ./configs/webpack.dev.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --color --open --config ./configs/webpack.dev.js",
     "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "prettier": "prettier --check '*/**/*.{js,ts,tsx}'",
     "test": "jest"
   },
   "browserslist": "> 0.25%, not dead",
