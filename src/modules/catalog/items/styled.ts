@@ -1,11 +1,15 @@
 import styled, { css } from 'styled-components'
+import { device } from '@/utils/styled'
 
 export const gridLayout = css`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  display: flex;
+  align-items: center;
   .right {
     text-align: right;
+  }
+  ${device.mobile} {
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 `
 
@@ -14,6 +18,9 @@ export const Header = styled.div`
   margin-bottom: 20px;
   font-weight: bold;
   ${gridLayout}
+  ${device.mobile} {
+    padding: 0 10px;
+  }
 `
 
 export const Item = styled.div`
@@ -25,10 +32,23 @@ export const Item = styled.div`
   &::last-child {
     margin-bottom: 0;
   }
+  ${device.mobile} {
+    padding: 10px;
+  }
 `
 
-export const Column = styled.div<{ right?: boolean }>`
+export const Column = styled.div<{ right?: boolean; buttonCont?: boolean }>`
+  width: 33%;
   display: flex;
   justify-content: ${({ right }) => (right ? 'flex-end' : 'flex-start')};
   align-items: center;
+  ${({ buttonCont }) =>
+    buttonCont &&
+    css`
+      ${device.mobile} {
+        width: 100%;
+        justify-content: center;
+        padding-top: 10px;
+      }
+    `}
 `

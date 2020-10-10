@@ -34,7 +34,7 @@ export const Items: React.FC<Props> = React.memo(function Items({ items }: Props
         <Styled.Item key={`${product.title}`}>
           <Styled.Column>{product.title}</Styled.Column>
           <Styled.Column right>{product.price} / $</Styled.Column>
-          <Styled.Column right>
+          <Styled.Column buttonCont right>
             {cartItems.find((i: IProduct) => i.id === product.id) ? (
               'Added'
             ) : (

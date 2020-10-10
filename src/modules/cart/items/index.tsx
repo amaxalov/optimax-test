@@ -43,7 +43,7 @@ export const Items: React.FC<Props> = React.memo(function Items({ items }: Props
         <Styled.Item key={`${product.title}`}>
           <Styled.Column>{product.title}</Styled.Column>
           <Styled.Column right>{product.price} / $</Styled.Column>
-          <Styled.Column right>
+          <Styled.Column right quantity>
             <QuantityCounter
               increment={() => increment(product.id)}
               decrement={() => decrement(product.id)}
