@@ -22,6 +22,8 @@ export const Items: React.FC<Props> = React.memo(function Items({ items }: Props
     dispatch(setTotalPrice())
   }, [])
 
+  if (items.length === 0) return null
+
   return (
     <>
       <Styled.Header>

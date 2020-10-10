@@ -4,7 +4,8 @@ import { ThunkAction } from 'redux-thunk'
 import { IProduct } from '@/types/models/catalog'
 import axios from 'axios'
 import { ICatalogState, ICatalogActions } from '../types/catalog'
-import { FETCH_CATALOG, FETCH_CATALOG_SUCCESS, ADD_TO_CATALOG, FETCH_CATALOG_REJECTED } from '../constants/catalog'
+import { FETCH_CATALOG, FETCH_CATALOG_SUCCESS, ADD_TO_CATALOG } from '../constants/catalog'
+import { setError } from './error'
 
 export const fetchCatalog = (): ICatalogActions => ({
   type: FETCH_CATALOG,
@@ -20,11 +21,6 @@ export const fetchCatalogSuccess = (res: IProduct[]): ICatalogActions => ({
   payload: res,
 })
 
-export const fetchCatalogReject = (error: string): ICatalogActions => ({
-  type: FETCH_CATALOG_REJECTED,
-  payload: error,
-})
-
 export const thunkFetchCatalog = (): ThunkAction<void, ICatalogState, unknown, Action> => (dispatch) => {
   dispatch(fetchCatalog())
   return axios
@@ -33,6 +29,6 @@ export const thunkFetchCatalog = (): ThunkAction<void, ICatalogState, unknown, A
       dispatch(fetchCatalogSuccess(res.data))
     })
     .catch((error) => {
-      dispatch(fetchCatalogReject(error.messages || 'something get wrong :('))
+      dispatch(setError(error.messages || 'something get wrong :('))
     })
 }

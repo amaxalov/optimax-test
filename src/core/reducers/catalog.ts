@@ -1,10 +1,9 @@
 import { ICatalogState, ICatalogActions } from '../types/catalog'
-import { ADD_TO_CATALOG, FETCH_CATALOG, FETCH_CATALOG_REJECTED, FETCH_CATALOG_SUCCESS } from '../constants/catalog'
+import { ADD_TO_CATALOG, FETCH_CATALOG, FETCH_CATALOG_SUCCESS } from '../constants/catalog'
 
 export const defaultState: ICatalogState = {
   isFetched: false,
   items: [],
-  error: null,
 }
 
 export function reducer(state: ICatalogState = defaultState, action: ICatalogActions): ICatalogState {
@@ -15,7 +14,6 @@ export function reducer(state: ICatalogState = defaultState, action: ICatalogAct
       return {
         ...state,
         isFetched: true,
-        error: null,
       }
     case ADD_TO_CATALOG:
       return {
@@ -27,12 +25,6 @@ export function reducer(state: ICatalogState = defaultState, action: ICatalogAct
         ...state,
         items: action.payload,
         isFetched: false,
-      }
-    case FETCH_CATALOG_REJECTED:
-      return {
-        ...state,
-        isFetched: false,
-        error: action.payload,
       }
   }
 }

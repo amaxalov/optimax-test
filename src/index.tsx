@@ -7,6 +7,7 @@ import '@/components/typography/font.css'
 import '@/components/layout/body.css'
 import store from '@/core/store'
 import { Navigation } from './modules/navigation'
+import { ErrorNotification } from './modules/error-notifications'
 import 'normalize.css'
 
 // HashRouter только потому, что это уходит на github pages
@@ -16,6 +17,7 @@ export const Root: React.FC = () => {
       <Provider store={store}>
         <HashRouter>
           <Navigation />
+          <ErrorNotification />
           <Routes />
         </HashRouter>
       </Provider>
