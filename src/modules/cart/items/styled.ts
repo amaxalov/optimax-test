@@ -2,16 +2,13 @@ import styled, { css } from 'styled-components'
 import { device } from '@/utils/styled'
 
 export const gridLayout = css`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr) 50px;
-  grid-gap: 10px;
+  display: flex;
+  justify-content: space-between;
   .right {
     text-align: right;
   }
   ${device.mobile} {
-    display: flex;
     flex-wrap: wrap;
-    grid-gap: 0;
   }
 `
 
@@ -41,10 +38,12 @@ export const Column = styled.div<{ right?: boolean; quantity?: boolean }>`
   display: flex;
   justify-content: ${({ right }) => (right ? 'flex-end' : 'flex-start')};
   align-items: center;
-  ${device.mobile} {
-    width: 50%;
+  width: 30%;
+  &:nth-child(4) {
+    width: 50px;
   }
   ${device.mobile} {
+    width: 50%;
     &:nth-child(3),
     &:nth-child(4) {
       padding-top: 10px;

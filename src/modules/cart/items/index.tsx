@@ -38,6 +38,7 @@ export const Items: React.FC<Props> = React.memo(function Items({ items }: Props
         <Styled.Column>title</Styled.Column>
         <Styled.Column right>price</Styled.Column>
         <Styled.Column right>quantity</Styled.Column>
+        <Styled.Column />
       </Styled.Header>
       {items.map((product: ICartItem) => (
         <Styled.Item key={`${product.title}`}>
