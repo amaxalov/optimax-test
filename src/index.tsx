@@ -1,7 +1,3 @@
-import 'react-app-polyfill/ie11'
-import 'react-app-polyfill/stable'
-import 'core-js/es6/map'
-import 'core-js/es6/set'
 import * as React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
