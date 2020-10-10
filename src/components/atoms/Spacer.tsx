@@ -1,14 +1,13 @@
-import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-interface HeaderProps {
+interface SpacerProps {
   readonly top?: string
   readonly left?: string
   readonly right?: string
   readonly bottom?: string
 }
 
-const Root = styled.div<HeaderProps>`
+export const Spacer = styled.div<SpacerProps>`
   display: block;
   ${({ top }) =>
     top &&
@@ -31,22 +30,3 @@ const Root = styled.div<HeaderProps>`
       padding-bottom: ${bottom}px;
     `};
 `
-
-interface Props extends HeaderProps {
-  children: React.ReactNode
-}
-
-const Spacer: React.FC<Props> = ({ children, top, left, bottom, right }: Props) => (
-  <Root top={top} left={left} bottom={bottom} right={right}>
-    {children}
-  </Root>
-)
-
-Spacer.defaultProps = {
-  top: '0',
-  left: '0',
-  right: '0',
-  bottom: '0',
-} as Props
-
-export { Spacer }

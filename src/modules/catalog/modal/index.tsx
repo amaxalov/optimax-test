@@ -16,10 +16,10 @@ type Props = {
 
 export const Modal: React.FC<Props> = React.memo(function Modal({ closeModal }: Props) {
   const dispatch = useDispatch()
-  const onSubmit = React.useCallback((values: Values) => {
+  const onSubmit = (values: Values) => {
     dispatch(addToCatalog({ ...values, price: parseInt(values.price), id: Date.now() }))
     closeModal()
-  }, [])
+  }
 
   return (
     <Styled.Root>

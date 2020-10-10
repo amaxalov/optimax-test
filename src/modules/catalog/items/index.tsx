@@ -14,13 +14,13 @@ interface RootState {
   cart: ICartState
 }
 
-export const Items: React.FC<Props> = React.memo(function Items({ items }: Props) {
+export const Items: React.FC<Props> = React.memo(({ items }: Props) => {
   const dispatch = useDispatch()
   const cartItems = useSelector((store: RootState) => store.cart.items)
-  const add = React.useCallback((product: IProduct) => {
+  const add = (product: IProduct) => {
     dispatch(addToCart(product))
     dispatch(setTotalPrice())
-  }, [])
+  }
 
   if (items.length === 0) return null
 
@@ -46,3 +46,5 @@ export const Items: React.FC<Props> = React.memo(function Items({ items }: Props
     </>
   )
 })
+
+Items.displayName = 'Items'

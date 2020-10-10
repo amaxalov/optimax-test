@@ -7,7 +7,7 @@
     "build": "cross-env NODE_ENV=production webpack --config ./configs/webpack.prod.js",
     "deploy": "gh-pages -d build",
     "start": "cross-env NODE_ENV=development webpack-dev-server --color --open --config ./configs/webpack.dev.js",
-    "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
+    "stats": "webpack --config ./configs/webpack.prod.js --json > stats.json && webpack-bundle-analyzer stats.json",
     "test": "jest"
   },
   "browserslist": "> 0.25%, not dead",
@@ -15,8 +15,6 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "7.11.6",
-    "@babel/plugin-proposal-class-properties": "7.10.4",
-    "@babel/plugin-proposal-object-rest-spread": "7.11.0",
     "@babel/preset-env": "7.11.5",
     "@babel/preset-react": "7.10.4",
     "@babel/preset-typescript": "7.10.4",

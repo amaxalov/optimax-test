@@ -11,10 +11,5 @@
     ],
     "@babel/preset-typescript",
     "@babel/preset-react"
-  ],
-  "plugins": [
-    "@babel/plugin-transform-template-literals",
-    "@babel/proposal-class-properties",
-    "@babel/proposal-object-rest-spread"
   ]
 }

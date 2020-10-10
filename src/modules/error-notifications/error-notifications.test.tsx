@@ -19,12 +19,12 @@ describe('ErrorNotification', () => {
 
     it('header expect', () => {
       render(<ErrorNotification />, { initialState })
-      expect(screen.getByText(/some error/i)).toBeInTheDocument()
+      expect(screen.getByText('some error')).toBeInTheDocument()
     })
 
     it('fire hide error', () => {
       const { container } = render(<ErrorNotification />, { initialState })
-      fireEvent.click(screen.getByText(/close error/i))
+      fireEvent.click(screen.getByText('close error'))
       expect(container.firstChild).toBeNull()
     })
   })

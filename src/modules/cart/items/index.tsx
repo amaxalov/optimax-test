@@ -17,20 +17,20 @@ interface RootState {
 
 export const Items: React.FC<Props> = React.memo(function Items({ items }: Props) {
   const dispatch = useDispatch()
-  const remove = React.useCallback((id: number) => {
+  const remove = (id: number) => {
     dispatch(removeFromCart(id))
     dispatch(setTotalPrice())
-  }, [])
+  }
 
-  const increment = React.useCallback((id: number) => {
+  const increment = (id: number) => {
     dispatch(incrementCartItem(id))
     dispatch(setTotalPrice())
-  }, [])
+  }
 
-  const decrement = React.useCallback((id: number) => {
+  const decrement = (id: number) => {
     dispatch(decrementCartItem(id))
     dispatch(setTotalPrice())
-  }, [])
+  }
 
   return (
     <>

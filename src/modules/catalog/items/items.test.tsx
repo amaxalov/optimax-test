@@ -25,13 +25,13 @@ describe('Items', () => {
 
     it('item expect', () => {
       render(<Items items={initialState} />)
-      expect(screen.getByText(/Samsung/i)).toBeInTheDocument()
+      expect(screen.getByText('Samsung')).toBeInTheDocument()
     })
 
     it('success add to cart', () => {
       render(<Items items={initialState} />, {})
-      fireEvent.click(screen.getAllByText(/Add to Cart/i)[0])
-      expect(screen.getByText(/Added/i)).toBeInTheDocument()
+      fireEvent.click(screen.getAllByText('Add to Cart')[0])
+      expect(screen.getByText('Added')).toBeInTheDocument()
     })
   })
 })

@@ -30,29 +30,29 @@ describe('Catalog', () => {
 
     it('header expect', () => {
       render(<Catalog />, { initialState })
-      expect(screen.getByText(/Stock of the companies/i)).toBeInTheDocument()
+      expect(screen.getByText('Stock of the companies')).toBeInTheDocument()
     })
 
     it('item expect', () => {
       render(<Catalog />, {
         initialState,
       })
-      expect(screen.getByText(/Samsung/i)).toBeInTheDocument()
+      expect(screen.getByText('Samsung')).toBeInTheDocument()
     })
 
     it('fire modal by click', () => {
       render(<Catalog />, { initialState })
-      fireEvent.click(screen.getByText(/add stock/i))
-      expect(screen.getByText(/Submit/i)).toBeInTheDocument()
+      fireEvent.click(screen.getByText('add stock'))
+      expect(screen.getByText('Submit')).toBeInTheDocument()
     })
 
     it('success submit', () => {
       render(<Catalog />, { initialState })
-      fireEvent.click(screen.getByText(/add stock/i))
+      fireEvent.click(screen.getByText('add stock'))
       fireEvent.change(screen.getByPlaceholderText('title'), { target: { value: 'test title' } })
       fireEvent.change(screen.getByPlaceholderText('price'), { target: { value: 15000 } })
-      fireEvent.click(screen.getByText(/Submit/i))
-      expect(screen.getByText(/test title/i)).toBeInTheDocument()
+      fireEvent.click(screen.getByText('Submit'))
+      expect(screen.getByText('test title')).toBeInTheDocument()
     })
   })
 })

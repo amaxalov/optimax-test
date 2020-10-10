@@ -13,7 +13,7 @@ interface RootState {
   catalog: ICatalogState
 }
 
-const Catalog: React.FC = React.memo(function Catalog() {
+const Catalog: React.FC = () => {
   const [isOpen, open] = React.useState<boolean>(false)
   const dispatch = useDispatch()
   const { items } = useSelector((store: RootState) => store.catalog)
@@ -40,6 +40,6 @@ const Catalog: React.FC = React.memo(function Catalog() {
       {isOpen && <Modal closeModal={() => open(false)} />}
     </Container>
   )
-})
+}
 
 export default Catalog

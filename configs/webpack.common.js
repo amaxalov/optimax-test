@@ -7,8 +7,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const isEnvDevelopment = process.env.NODE_ENV === 'development'
 const isEnvProduction = process.env.NODE_ENV === 'production'
 
-const { CLIENT_APP = 'optimax-test' } = process.env
-
 const fileName = (ext) => (isEnvDevelopment ? `[name].${ext}` : `[name].[hash].${ext}`)
 
 const cssLoaders = (extra) => {
