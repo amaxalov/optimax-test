@@ -1,0 +1,7 @@
+build
+.vscode
+.DS_Store
+node_modules
+tmp
+coverage
+stats.json
